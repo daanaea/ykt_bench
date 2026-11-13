@@ -2,6 +2,7 @@
 """Parse numbered exercises (assignments) out of the extracted textbook text.
 
 Input:  ocr/ykt_language/*.txt   (from extract_text.py)
+        data/icons.csv           (from detect_icons.py, optional)
 Output: data/ykt_language_assignments.csv
 
 The text layer carries no fonts or layout, so exercise headers ("61. Күрэхтэһиҥ…")
@@ -9,6 +10,8 @@ look exactly like numbered sub-items inside an exercise ("1. Будулҕан т
 We pick the headers with a small dynamic program over every numbered line:
   * exercise numbers form a chain n, n+1, n+2… (grades 5–11 number the whole
     book; grades 1–4 restart at 1 every lesson),
+  * tests/exams in grades 5–11 run their own 1…N "side chain", after which
+    the main numbering resumes,
   * sub-item lists restart at 1 inside an exercise,
   * headers read like instructions (imperative verbs, questions).
 The highest-scoring reading of the numbered lines wins.
@@ -18,6 +21,7 @@ Usage: python3 scripts/parse_assignments.py [ocr_dir] [out_csv]
 import csv
 import re
 import sys
+from collections import defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -27,13 +31,33 @@ from sakha_text import CorpusStats, dehyphenate  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 OCR_DIR = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "ocr" / "ykt_language"
 OUT_CSV = Path(sys.argv[2]) if len(sys.argv) > 2 else ROOT / "data" / "ykt_language_assignments.csv"
+ICONS_CSV = ROOT / "data" / "icons.csv"
 
 UP = "А-ЯЁҔҤӨҺҮ"
 LO = "а-яёҕҥөһү"
 PAGE_RE = re.compile(r"^===== page (\d+)(?: \[(\w+)\])? =====$")
-NUM_RE = re.compile(rf"^(\d{{1,3}})(?:\.(?:\s+(.*))?|\s+([«\"]?[{'А-ЯЁҔҤӨҺҮ'}].*))$")
+NUM_RE = re.compile(rf"^(\d{{1,3}})(?:\.(?:\s+(.*))?|\s+([«\"]?[{UP}].*))$")
 SECTION_RE = re.compile(r"^\d{1,3}\s?§\.?\s*\S")
 INLINE_NUM = re.compile(rf"(?<=[.?!»)])\s+(?=\d{{1,3}}\.\s+[«\"(\[]?[{UP}])")
+# grade 9 review section: "1 сорудах. …" (task) and "1 эрчиллии. …" (exercise)
+REVIEW_RE = re.compile(r"^(\d{1,2}) (сорудах|эрчиллии)\.\s*(.*)$")
+# a test/exam heading starts a side chain of its own 1…N questions
+SIDE_WORD = re.compile(r"(?i)тургутук\s*$|эксээмэн")
+# answer keys and the table of contents close the part of a book with tasks
+END_RE = re.compile(r"(?i)^(?:оонньуулар таайыылара|таайбараҥнар эппиэттэрэ:?|"
+                    r"таабырыннар эппиэттэрэ:?|тургутуктар хоруйдара|\d барыйаан хоруйа|"
+                    r"иһинээ.итэ)$")
+
+
+class _SideRe:
+    """Heading-like lines naming a test or exam (not sentences mentioning one)."""
+    @staticmethod
+    def search(text):
+        return (len(text) < 60 and not re.match(r"\d", text)
+                and not re.search(r"[.?!]$", text) and SIDE_WORD.search(text))
+
+
+SIDE_RE = _SideRe()
 
 # Recurring headings: they end an exercise's content and set its "block".
 HEADINGS = {
@@ -45,12 +69,12 @@ HEADINGS = {
     "Үөрэнэр сорукпун хайдах толордум": "",     # self-assessment after a test
 }
 
-# 2nd-person-singular imperatives common in grades 1–4 instructions.
+# 2nd-person-singular imperatives common in instructions.
 IMP_2SG = set("""
 аах бул суруй ырыт тупсар хоруйдаа уһул оҥор туруор таай быһаар ый көр бэлиэтээ
 толкуйдаа уларыт таһаар араар ситэр тарт эт кэпсээ наардаа үөрэт холбоо ааттаа
 тэҥнээ сааһылаа ситимнээ толор уус ус кэпсэт ыллаа истэ иһит булан түмүктээ
-сыаналаа санаа бэлэмнээ дакаастаа ааҕан хатылаа сурунаал уруһуйдаа тылбаастаа
+сыаналаа санаа бэлэмнээ дакаастаа ааҕан хатылаа уруһуйдаа тылбаастаа тал
 сөпсөһүннэр сыһыар ааттаталаа ыйыталас солбуй эбэн кылгат сиһилээ
 """.split())
 IMP_2PL = re.compile(rf"[{LO}]{{2,}}(?:ыҥ|иҥ|уҥ|үҥ|ааҥ|ээҥ|ооҥ|өөҥ)$")
@@ -70,20 +94,35 @@ class Line:
 
 @dataclass
 class Exercise:
-    book: str
-    lesson: int
     number: int
+    printed: str
     start: int            # line index of the header
+    chain: str            # main | lesson | side | review
+    chain_no: int = 0     # lesson / side-chain index
     end: int = 0          # exclusive
     section: str = ""
     block: str = ""
-    extra: dict = field(default_factory=dict)
+
+
+LETTER = f"[{UP}{LO}]"
+SPACED = re.compile(rf"(?<!\S)(?:{LETTER} ){{3,}}{LETTER}(?!\S)")
+
+
+def tidy(text: str) -> str:
+    """Collapse letter-spaced emphasis ("Х о л о б у р") and runs of spaces."""
+    text = SPACED.sub(lambda m: m.group(0).replace(" ", ""), text)
+    return re.sub(r"[ \t]{2,}", " ", text)
 
 
 def book_meta(book: str):
     m = re.match(r"Саха_тыла_(\d+(?:-\d+)?)(?:_(\d))?", book)
-    grade, part = m.group(1), m.group(2) or ""
-    return grade, part
+    return m.group(1), m.group(2) or ""
+
+
+def is_stop(text: str) -> bool:
+    """Lines that end an exercise's content."""
+    return (text in HEADINGS or bool(SECTION_RE.match(text)) or bool(SIDE_RE.search(text))
+            or bool(REVIEW_RE.match(text)) or bool(re.fullmatch(r"\d чааһа", text)))
 
 
 def load(path: Path):
@@ -98,6 +137,8 @@ def load(path: Path):
         s = ln.strip()
         if not s:
             continue
+        if END_RE.match(s):
+            break
         # printed page number: a bare number that is the page's last line
         nxt = next((r for r in raw[k + 1:] if r.strip()), "")
         if re.fullmatch(r"\d{1,3}", s) and (not nxt or PAGE_RE.match(nxt)):
@@ -113,12 +154,15 @@ def load(path: Path):
 def header_text(lines, i, limit=4):
     """The instruction: header line plus continuation lines up to sentence end."""
     m = NUM_RE.match(lines[i].text)
-    parts = [m.group(2) or m.group(3) or ""]
+    if m:
+        parts = [m.group(2) or m.group(3) or ""]
+    else:
+        parts = [REVIEW_RE.match(lines[i].text).group(3)]
     j = i + 1
     while j < len(lines) and len(parts) < limit:
         cur = " ".join(parts).rstrip()
         nxt = lines[j].text
-        if NUM_RE.match(nxt) or nxt in HEADINGS or SECTION_RE.match(nxt):
+        if NUM_RE.match(nxt) or is_stop(nxt):
             break
         ends = re.search(r"[.?!:»)]$", cur) and not cur.endswith("-")
         if cur and ends and not re.match(rf"[{LO}]", nxt):
@@ -147,71 +191,84 @@ def instr_score(text: str) -> float:
     return max(0.0, min(1.0, s))
 
 
-def choose_headers(cands, restarts: bool):
+def choose_headers(cands, lower: bool):
     """DP over numbered lines.
 
-    cands: list of (line_idx, number, instr_score, hard_reset, last_inline_no).
-    State = (last exercise number, last sub-item number). Returns the set of
-    candidate positions read as exercise headers.
+    cands: list of (line_idx, number, instr_score, lesson_reset, side_reset,
+    last_inline_no). State = (L main/lesson number, s sub-item number,
+    T side-chain number). Returns {cand_pos: (number, kind)}, kind ∈ ex|side.
 
-    Weights: continuing the exercise chain is worth most; a sub-item is cheap
-    and preferred for lines that don't read like instructions; leaving a
-    numbered line unexplained costs, so does restarting the count (a new
-    lesson), unless a unit/test heading just announced one.
+    Weights: continuing a chain is worth most; a sub-item is cheap and
+    preferred for lines that don't read like instructions; leaving a numbered
+    line unexplained costs, so does restarting the count (a new lesson) unless
+    a heading just announced one.
     """
     NEG = float("-inf")
-    best = {(0, 0): (0.0, None)}  # state -> (score, backpointer)
+    best = {(0, 0, 0): (0.0, None)}
     history = []
-    for pos, (_, n, f, reset, last_inline) in enumerate(cands):
+    for pos, (_, n, f, reset, side_reset, side_break, last_inline) in enumerate(cands):
         new = {}
 
         def push(state, score, back):
             if score > new.get(state, (NEG,))[0]:
                 new[state] = (score, back)
 
-        for (L, s), (score, _) in best.items():
-            prev = (pos, (L, s))
-            push((L, s), score - 1.5, (prev, "skip"))
-            # exercise header
+        for (L, s, T0), (score, _) in best.items():
+            T = 0 if side_break else T0  # a heading closed the test
+            prev = (pos, (L, s, T0))
+            push((L, s, T), score - 1.5, (prev, "skip"))
+            # main-chain exercise header (leaves any side chain)
             if n == L + 1:
-                push((n, 0), score + 3 + 2 * f, (prev, "ex"))
+                push((n, 0, 0), score + 3 + 2 * f, (prev, "ex"))
             elif L + 1 < n <= L + 4 and L > 0:
-                push((n, 0), score + 1 + 2 * f - (n - L - 1), (prev, "ex"))
-            elif n == 1 and (restarts or L == 0):
+                push((n, 0, 0), score + 1 + 2 * f - (n - L - 1), (prev, "ex"))
+            elif n == 1 and (lower or L == 0):
                 gain = (2.0 if reset else -1.5) + 2 * f
-                push((1, 0), score + gain, (prev, "ex"))
+                push((1, 0, 0), score + gain, (prev, "ex"))
             elif L == 0 and n <= 3:  # book whose first exercise we missed
-                push((n, 0), score + 1 + 2 * f, (prev, "ex"))
-            # misprinted number (e.g. "46." twice, "139." for 168): an
+                push((n, 0, 0), score + 1 + 2 * f, (prev, "ex"))
+            # misprinted number ("46." twice, "139." for 168): an
             # instruction-like line sitting where L+1 should be
-            if (not restarts and L > 0 and f >= 0.5 and n >= 10
+            if (not lower and L > 0 and f >= 0.5 and n >= 10
                     and n != L + 1 and abs(n - (L + 1)) <= 40):
-                push((L + 1, 0), score + 2 * f - 0.5, (prev, "ex"))
+                push((L + 1, 0, 0), score + 2 * f - 0.5, (prev, "ex"))
+            # test/exam questions: their own 1…N chain (grades 5–11)
+            if not lower:
+                if n == 1 and side_reset:
+                    push((L, 0, 1), score + 2 + 2 * f, (prev, "side"))
+                elif T > 0 and n == T + 1:
+                    push((L, 0, n), score + 2.5 + 2 * f, (prev, "side"))
             # sub-item inside the current exercise ("1. … 2. …" may share a line)
-            if L > 0 and (n == s + 1 or n == 1):
-                push((L, last_inline), score + 1.0 + 1.0 * (1 - f), (prev, "sub"))
+            if (L > 0 or T > 0) and (n == s + 1 or n == 1):
+                push((L, last_inline, T), score + 1.0 + 1.0 * (1 - f), (prev, "sub"))
         history.append(new)
         best = new
 
-    # backtrack
     state = max(best, key=lambda k: best[k][0])
-    chosen = {}  # candidate position -> canonical exercise number
+    chosen = {}
     for pos in range(len(cands) - 1, -1, -1):
-        score, back = history[pos][state]
+        _, back = history[pos][state]
         (_, prev_state), kind = back
         if kind == "ex":
-            chosen[pos] = state[0]
+            chosen[pos] = (state[0], "ex")
+        elif kind == "side":
+            chosen[pos] = (state[2], "side")
         state = prev_state
     return chosen
 
 
 def detect_headers(lines, lower: bool):
-    """Return [(line_idx, number)] of exercise headers, in reading order."""
+    """[(line_idx, number, printed, kind)] of exercise headers in reading order."""
     cands = []
-    reset_pending = True
+    reset_pending, side_pending, side_break = True, False, False
     for i, ln in enumerate(lines):
         if ln.text in HEADINGS and HEADINGS[ln.text] is not None:
             reset_pending = True
+        if SIDE_RE.search(ln.text) or re.fullmatch(r"\d чааһа", ln.text):
+            side_pending = True
+        if (ln.text in HEADINGS or SECTION_RE.match(ln.text)
+                or re.fullmatch(rf"[{UP}IVX\s.,:—-]{{5,}}", ln.text)):
+            side_break = True
         m = NUM_RE.match(ln.text)
         if not m:
             continue
@@ -222,23 +279,25 @@ def detect_headers(lines, lower: bool):
         for k in map(int, re.findall(r"(?:^|\s)(\d{1,2})\.\s", ln.text)[1:]):
             if k == last + 1:
                 last = k
-        cands.append((i, n, instr_score(text), reset_pending and n == 1, last))
-        if n == 1:
-            reset_pending = False
+        cands.append((i, n, instr_score(text), reset_pending and n == 1,
+                      side_pending and n == 1, side_break, last))
+        reset_pending = side_pending = side_break = False
 
-    chosen = choose_headers(cands, restarts=lower)
-    # (line_idx, canonical number, printed number)
-    return [(cands[p][0], chosen[p], cands[p][1]) for p in sorted(chosen)]
+    chosen = choose_headers(cands, lower)
+    return [(cands[p][0], num, str(cands[p][1]), kind)
+            for p, (num, kind) in sorted(chosen.items())]
 
 
 def split_buried_headers(lines, headers):
     """Find numbers missing from a chain buried mid-line and split them out.
 
-    Between headers a and b (a < b-1 in the same chain) look for the missing
+    Between consecutive headers a and b (a < b-1) look for the missing
     "g. Capital…" after a sentence end, and break the line there.
     """
     splits = {}
-    for (i, a, _), (j, b, _) in zip(headers, headers[1:]):
+    for (i, a, _, ka), (j, b, _, kb) in zip(headers, headers[1:]):
+        if ka != kb:
+            continue
         for g in range(a + 1, b) if 1 < b - a <= 4 else ():
             pat = re.compile(rf"(?<=[.?!»)…])\s+(?={g}\.\s+[«\"(\[]?[{UP}])")
             for k in range(i, j):
@@ -257,7 +316,18 @@ def split_buried_headers(lines, headers):
     return out, len(splits)
 
 
-def parse_book(path: Path, stats: CorpusStats):
+def load_icons():
+    """(book, page, number) -> [icon labels] for icons that sit by a number."""
+    icons = defaultdict(list)
+    if ICONS_CSV.exists():
+        with ICONS_CSV.open(encoding="utf-8") as f:
+            for r in csv.DictReader(f):
+                if r["number"]:
+                    icons[(r["book"], int(r["page"]), int(r["number"]))].append(r["label"])
+    return icons
+
+
+def parse_book(path: Path, stats: CorpusStats, icons):
     book = path.stem
     grade, part = book_meta(book)
     lower = grade in {"1", "2", "3", "4"}
@@ -268,8 +338,9 @@ def parse_book(path: Path, stats: CorpusStats):
         headers = detect_headers(lines, lower)
 
     # Walk the book once to attach section/block context and boundaries.
-    exercises, section, block, lesson = [], "", "", 0
-    hdr_at = {i: (n, printed) for i, n, printed in headers}
+    exercises, section, block, side_title = [], "", "", ""
+    lesson = side = 0
+    hdr_at = {i: (n, printed, kind) for i, n, printed, kind in headers}
     for i, ln in enumerate(lines):
         if SECTION_RE.match(ln.text):
             title = ln.text
@@ -278,12 +349,29 @@ def parse_book(path: Path, stats: CorpusStats):
             section, block = title, ""
         elif ln.text in HEADINGS and HEADINGS[ln.text] is not None:
             block = HEADINGS[ln.text]
-        if i in hdr_at:
-            n, printed = hdr_at[i]
-            if not exercises or n <= exercises[-1].number:
-                lesson += 1
-            exercises.append(Exercise(book, lesson, n, i, section=section, block=block,
-                                      extra={"printed": printed}))
+        elif SIDE_RE.search(ln.text) and len(ln.text) < 60 and not ln.text.endswith("."):
+            side_title = ln.text
+        elif ln.text == "үөрэппити хатылааһын":
+            section = "Алын кылаастарга үөрэппити хатылааһын"
+        rm = REVIEW_RE.match(ln.text)
+        if rm:  # grade 9 end-of-book review: two interleaved numberings
+            kind = "review_task" if rm.group(2) == "сорудах" else "review_exercise"
+            exercises.append(Exercise(int(rm.group(1)), rm.group(1), i, kind,
+                                      section=section, block="review"))
+        elif i in hdr_at:
+            n, printed, kind = hdr_at[i]
+            if kind == "side":
+                if n == 1:
+                    side += 1
+                exercises.append(Exercise(n, printed, i, "side", side,
+                                          section=side_title, block="test"))
+            else:
+                prev_main = [e for e in exercises if e.chain in ("main", "lesson")]
+                if lower and (not prev_main or n <= prev_main[-1].number):
+                    lesson += 1
+                exercises.append(Exercise(n, printed, i, "lesson" if lower else "main",
+                                          lesson if lower else 0,
+                                          section=section, block=block))
     for a, b in zip(exercises, exercises[1:]):
         a.end = b.start
     if exercises:
@@ -293,13 +381,13 @@ def parse_book(path: Path, stats: CorpusStats):
     for ex in exercises:
         span = lines[ex.start:ex.end]
         parts, j = header_text(lines, ex.start)
-        instruction = dehyphenate("\n".join(parts), stats).replace("\n", " ").strip()
+        instruction = tidy(dehyphenate("\n".join(parts), stats).replace("\n", " ")).strip()
 
         # content: until a heading/section line, or a theory paragraph (5–11)
         body, truncated = [], ""
         for k in range(j, ex.end):
             t = lines[k].text
-            if t in HEADINGS or SECTION_RE.match(t):
+            if is_stop(t):
                 truncated = "heading"
                 break
             starts_sentence = re.match(rf"[{UP}]", t) and (
@@ -308,25 +396,28 @@ def parse_book(path: Path, stats: CorpusStats):
                 truncated = "theory"
                 break
             body.append(t)
-        content = dehyphenate("\n".join(body), stats).strip()
-        raw = dehyphenate("\n".join(l.text for l in span), stats)
+        content = tidy(dehyphenate("\n".join(body), stats)).strip()
+        raw = tidy(dehyphenate("\n".join(l.text for l in span), stats))
 
+        prefix = {"main": "", "lesson": f"-L{ex.chain_no:02d}", "side": f"-T{ex.chain_no}",
+                  "review_task": "-RS", "review_exercise": "-RE"}[ex.chain]
+        page0 = span[0].page
         sources = {l.source for l in span}
-        pages = [l.page for l in span]
-        printed = ""
+        icon = icons.get((book, page0, int(ex.printed)), [])
         rows.append({
-            "id": f"g{grade}" + (f"p{part}" if part else "")
-                  + (f"-L{ex.lesson:02d}" if lower else "") + f"-{ex.number:03d}",
+            "id": f"g{grade}" + (f"p{part}" if part else "") + f"{prefix}-{ex.number:03d}",
             "grade": grade,
             "part": part,
             "book": book,
-            "lesson": ex.lesson if lower else "",
+            "chain": ex.chain,
+            "lesson": ex.chain_no or "",
             "number": ex.number,
-            "printed_number": ex.extra["printed"],
+            "printed_number": ex.printed,
             "section": ex.section,
             "block": ex.block,
-            "pdf_page_start": pages[0],
-            "pdf_page_end": pages[-1],
+            "icon": "; ".join(dict.fromkeys(icon)),
+            "pdf_page_start": page0,
+            "pdf_page_end": span[-1].page,
             "instruction": instruction,
             "content": content,
             "needs_visual": int(bool(VISUAL.search(instruction))),
@@ -334,22 +425,26 @@ def parse_book(path: Path, stats: CorpusStats):
             "source": sources.pop() if len(sources) == 1 else "mixed",
             "raw_text": raw,
         })
-        del printed
     return rows
+
+
+GRADE_ORDER = {"1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10-11": 10}
 
 
 def main():
     paths = sorted(OCR_DIR.glob("*.txt"))
     stats = CorpusStats(p.read_text(encoding="utf-8") for p in paths)
+    icons = load_icons()
     all_rows = []
     for p in paths:
-        rows = parse_book(p, stats)
+        rows = parse_book(p, stats, icons)
         all_rows += rows
-        nums = [r["number"] for r in rows]
-        print(f"{p.stem:28s} exercises={len(rows):4d}  max_no={max(nums) if nums else 0}"
-              f"  lessons={len({r['lesson'] for r in rows}) if rows and rows[0]['lesson'] else '-'}")
-    order = {"1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10-11": 10}
-    all_rows.sort(key=lambda r: (order[r["grade"]], r["part"], r["pdf_page_start"], r["number"]))
+        by = defaultdict(int)
+        for r in rows:
+            by[r["chain"]] += 1
+        print(f"{p.stem:28s} rows={len(rows):4d}  " + "  ".join(f"{k}={v}" for k, v in by.items())
+              + f"  with_icon={sum(1 for r in rows if r['icon'])}")
+    all_rows.sort(key=lambda r: (GRADE_ORDER[r["grade"]], r["part"], r["pdf_page_start"]))
     OUT_CSV.parent.mkdir(parents=True, exist_ok=True)
     with OUT_CSV.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=list(all_rows[0]))
