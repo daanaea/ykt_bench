@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yakut Annotator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Mono', 'Menlo', 'Monaco', monospace;
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+            padding: 40px;
+            font-size: 14px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-actions button {
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-actions button:hover {
+            color: #fff;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .panel {
+            min-height: 400px;
+        }
+
+        .panel-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #222;
+            padding: 15px 0;
+            color: #fff;
+            font-size: 15px;
+            line-height: 1.7;
+            resize: none;
+            font-family: inherit;
+        }
+
+        textarea::placeholder {
+            color: #333;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-bottom-color: #444;
+        }
+
+        .compile-btn {
+            background: none;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 15px;
+            transition: all 0.2s;
+        }
+
+        .compile-btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .annotated-view {
+            min-height: 100px;
+            padding: 20px 0;
+            line-height: 2;
+            font-size: 15px;
+            border-bottom: 1px solid #222;
+        }
+
+        .annotated-view:empty::before {
+            content: '—';
+            color: #222;
+        }
+
+        /* Annotations */
+        .annotation {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .annotation.grammar {
+            border-bottom: 2px solid #fff;
+            text-decoration: line-through;
+            text-decoration-color: #666;
+        }
+
+        .annotation.unnatural {
+            border-bottom: 1px dashed #666;
+        }
+
+
+        /* Selection popup */
+        .popup {
+            display: none;
+            position: fixed;
+            background: #000;
+            border: 1px solid #333;
+            z-index: 1000;
+        }
+
+        .popup button {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            border-bottom: 1px solid #222;
+            color: #fff;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 12px;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .popup button:last-child {
+            border-bottom: none;
+        }
+
+        .popup button:hover {
+            background: #111;
+        }
+
+        /* Yakut keyboard */
+        .keyboard {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+        }
+
+        .keyboard-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .keys {
+            display: flex;
+            gap: 10px;
+        }
+
+        .key {
+            width: 44px;
+            height: 44px;
+            background: transparent;
+            border: 1px solid #333;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.15s;
+        }
+
+        .key:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* Annotations list */
+        .annotations-list {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+        }
+
+        .list-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .annotation-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #111;
+            font-size: 13px;
+        }
+
+        .annotation-item .type {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #444;
+            width: 70px;
+            flex-shrink: 0;
+        }
+
+        .annotation-item .original {
+            color: #666;
+            flex-shrink: 0;
+        }
+
+        .annotation-item .arrow {
+            color: #333;
+            flex-shrink: 0;
+        }
+
+        .annotation-item .correction-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #333;
+            padding: 5px 0;
+            color: #fff;
+            font-family: inherit;
+            font-size: 13px;
+        }
+
+        .annotation-item .correction-input:focus {
+            outline: none;
+            border-bottom-color: #fff;
+        }
+
+        .annotation-item .correction-input::placeholder {
+            color: #333;
+        }
+
+        .annotation-item .delete {
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .annotation-item .delete:hover {
+            color: #fff;
+        }
+
+        .stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #444;
+        }
+
+        .empty-state {
+            color: #333;
+            font-size: 12px;
+        }
+
+        .corrected-view {
+            min-height: 100px;
+            padding: 20px 0;
+            line-height: 2;
+            font-size: 15px;
+            border-bottom: 1px solid #222;
+            color: #888;
+        }
+
+        .corrected-view .correction {
+            color: #fff;
+            border-bottom: 1px solid #444;
+        }
+
+        .corrected-view .pending {
+            color: #555;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Саха тыла</div>
+        <div class="header-actions">
+            <button onclick="saveToBank()">Save</button>
+            <button onclick="exportData()">Export</button>
+            <button onclick="clearAll()">Clear</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="panel">
+            <div class="panel-label">Model Output</div>
+            <textarea id="modelOutput" placeholder="Paste text here..."></textarea>
+            <button class="compile-btn" onclick="compileText()">Compile</button>
+
+            <div class="annotated-view" id="annotatedView"></div>
+
+            <div class="stats" id="stats" style="display: none;">
+                <span>Grammar: <span id="grammarCount">0</span></span>
+                <span>Unnatural: <span id="unnaturalCount">0</span></span>
+            </div>
+
+            <div class="annotations-list" id="annotationsList" style="display: none;">
+                <div class="list-label">Annotations</div>
+                <div id="annotationsContainer"></div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-label">Corrected Version (auto-generated)</div>
+            <div class="corrected-view" id="correctedView">—</div>
+
+            <div class="keyboard">
+                <div class="keyboard-label">Yakut Letters (hold shift for uppercase)</div>
+                <div class="keys">
+                    <button class="key" onclick="insertChar('ҕ', 'Ҕ')">ҕ</button>
+                    <button class="key" onclick="insertChar('ҥ', 'Ҥ')">ҥ</button>
+                    <button class="key" onclick="insertChar('ө', 'Ө')">ө</button>
+                    <button class="key" onclick="insertChar('һ', 'Һ')">һ</button>
+                    <button class="key" onclick="insertChar('ү', 'Ү')">ү</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup" id="popup">
+        <button onclick="annotateSelection('grammar')">Grammar</button>
+        <button onclick="annotateSelection('unnatural')">Unnatural</button>
+    </div>
+
+    <script>
+        let annotations = [];
+        let compiledText = '';
+        let lastFocusedInput = null;
+        let shiftPressed = false;
+
+        document.addEventListener('focusin', e => {
+            if (e.target.matches('textarea, input[type="text"]')) {
+                lastFocusedInput = e.target;
+            }
+        });
+
+        document.addEventListener('keydown', e => { if (e.key === 'Shift') shiftPressed = true; });
+        document.addEventListener('keyup', e => { if (e.key === 'Shift') shiftPressed = false; });
+
+        function insertChar(lower, upper) {
+            const char = shiftPressed ? upper : lower;
+            if (lastFocusedInput) {
+                const start = lastFocusedInput.selectionStart;
+                const end = lastFocusedInput.selectionEnd;
+                const text = lastFocusedInput.value;
+                lastFocusedInput.value = text.substring(0, start) + char + text.substring(end);
+                lastFocusedInput.selectionStart = lastFocusedInput.selectionEnd = start + 1;
+                lastFocusedInput.focus();
+            }
+        }
+
+        function compileText() {
+            const text = document.getElementById('modelOutput').value.trim();
+            if (!text) return;
+            compiledText = text;
+            annotations = [];
+            renderAnnotatedView();
+            renderCorrectedView();
+            document.getElementById('stats').style.display = 'flex';
+            document.getElementById('annotationsList').style.display = 'block';
+            updateStats();
+        }
+
+        function renderAnnotatedView() {
+            const view = document.getElementById('annotatedView');
+            const sorted = [...annotations].sort((a, b) => b.start - a.start);
+            let html = compiledText;
+
+            sorted.forEach(ann => {
+                const before = html.substring(0, ann.start);
+                const text = html.substring(ann.start, ann.end);
+                const after = html.substring(ann.end);
+
+                html = before +
+                    `<span class="annotation ${ann.type}">${text}</span>` +
+                    after;
+            });
+
+            view.innerHTML = html;
+            view.onmouseup = handleSelection;
+        }
+
+        function handleSelection(e) {
+            const selection = window.getSelection();
+            const selectedText = selection.toString().trim();
+
+            if (selectedText.length > 0) {
+                const start = compiledText.indexOf(selectedText);
+                if (start === -1) return;
+                const end = start + selectedText.length;
+
+                const overlaps = annotations.some(ann => start < ann.end && end > ann.start);
+                if (overlaps) return;
+
+                const popup = document.getElementById('popup');
+                popup.style.display = 'block';
+                popup.style.left = e.pageX + 'px';
+                popup.style.top = e.pageY + 'px';
+                popup.dataset.start = start;
+                popup.dataset.end = end;
+                popup.dataset.text = selectedText;
+            }
+        }
+
+        document.addEventListener('click', e => {
+            if (!e.target.closest('.popup') && !e.target.closest('.annotated-view')) {
+                document.getElementById('popup').style.display = 'none';
+            }
+        });
+
+        function annotateSelection(type) {
+            const popup = document.getElementById('popup');
+            annotations.push({
+                start: parseInt(popup.dataset.start),
+                end: parseInt(popup.dataset.end),
+                text: popup.dataset.text,
+                type: type,
+                correction: ''
+            });
+            popup.style.display = 'none';
+            renderAnnotatedView();
+            renderAnnotationsList();
+            renderCorrectedView();
+            updateStats();
+        }
+
+        function updateCorrection(index, value) {
+            annotations[index].correction = value;
+            renderCorrectedView();
+        }
+
+        function renderCorrectedView() {
+            const view = document.getElementById('correctedView');
+            if (!compiledText || annotations.length === 0) {
+                view.innerHTML = compiledText || '—';
+                return;
+            }
+
+            // Sort by position to apply replacements
+            const sorted = [...annotations].sort((a, b) => a.start - b.start);
+            let result = '';
+            let lastEnd = 0;
+
+            sorted.forEach(ann => {
+                // Add text before this annotation
+                result += compiledText.substring(lastEnd, ann.start);
+
+                // Add correction or placeholder
+                if (ann.correction) {
+                    result += `<span class="correction">${ann.correction}</span>`;
+                } else {
+                    result += `<span class="pending">[${ann.text}]</span>`;
+                }
+                lastEnd = ann.end;
+            });
+
+            // Add remaining text
+            result += compiledText.substring(lastEnd);
+            view.innerHTML = result;
+        }
+
+        function renderAnnotationsList() {
+            const container = document.getElementById('annotationsContainer');
+            if (annotations.length === 0) {
+                container.innerHTML = '<div class="empty-state">Select text to annotate</div>';
+                return;
+            }
+
+            container.innerHTML = annotations.map((ann, idx) => `
+                <div class="annotation-item">
+                    <span class="type">${ann.type}</span>
+                    <span class="original">${ann.text}</span>
+                    <span class="arrow">→</span>
+                    <input type="text" class="correction-input" placeholder="correction..."
+                           value="${ann.correction || ''}"
+                           oninput="updateCorrection(${idx}, this.value)"
+                           data-index="${idx}">
+                    <button class="delete" onclick="deleteAnnotation(${idx})">×</button>
+                </div>
+            `).join('');
+        }
+
+        function deleteAnnotation(index) {
+            annotations.splice(index, 1);
+            renderAnnotatedView();
+            renderAnnotationsList();
+            renderCorrectedView();
+            updateStats();
+        }
+
+        function updateStats() {
+            document.getElementById('grammarCount').textContent = annotations.filter(a => a.type === 'grammar').length;
+            document.getElementById('unnaturalCount').textContent = annotations.filter(a => a.type === 'unnatural').length;
+        }
+
+        function getCorrectedText() {
+            if (!compiledText || annotations.length === 0) return compiledText;
+            const sorted = [...annotations].sort((a, b) => a.start - b.start);
+            let result = '';
+            let lastEnd = 0;
+            sorted.forEach(ann => {
+                result += compiledText.substring(lastEnd, ann.start);
+                result += ann.correction || ann.text;
+                lastEnd = ann.end;
+            });
+            result += compiledText.substring(lastEnd);
+            return result;
+        }
+
+        async function saveToBank() {
+            if (!compiledText || annotations.length === 0) {
+                alert('Nothing to save');
+                return;
+            }
+
+            const data = {
+                timestamp: new Date().toISOString(),
+                modelOutput: document.getElementById('modelOutput').value,
+                correctedVersion: getCorrectedText(),
+                annotations: annotations
+            };
+
+            try {
+                const res = await fetch('/save', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if (res.ok) {
+                    alert('Saved to bank.csv');
+                    clearAll();
+                } else {
+                    alert('Error saving');
+                }
+            } catch (e) {
+                alert('Server error: ' + e.message);
+            }
+        }
+
+        function exportData() {
+            const data = {
+                timestamp: new Date().toISOString(),
+                modelOutput: document.getElementById('modelOutput').value,
+                correctedVersion: getCorrectedText(),
+                annotations: annotations
+            };
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `yakut-${Date.now()}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function clearAll() {
+            document.getElementById('modelOutput').value = '';
+            document.getElementById('correctedView').innerHTML = '—';
+            document.getElementById('annotatedView').innerHTML = '';
+            document.getElementById('stats').style.display = 'none';
+            document.getElementById('annotationsList').style.display = 'none';
+            annotations = [];
+            compiledText = '';
+        }
+
+        renderAnnotationsList();
+    </script>
+</body>
+</html>

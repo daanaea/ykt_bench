@@ -1,0 +1,148 @@
+{
+  "Саха_тыла_1": {
+    "pdf": "ykt_textbooks/ykt_language/Саха_тыла_1.pdf",
+    "pages": 144,
+    "vision_pages": [],
+    "empty_pages": []
+  },
+  "Саха_тыла_10-11_кылаас": {
+    "pdf": "ykt_textbooks/ykt_language/Саха_тыла_10-11_кылаас.pdf",
+    "pages": 184,
+    "vision_pages": [],
+    "empty_pages": [
+      1,
+      184
+    ]
+  },
+  "Саха_тыла_2_1": {
+    "pdf": "ykt_textbooks/ykt_language/Саха_тыла_2_1.pdf",
+    "pages": 96,
+    "vision_pages": [],
+    "empty_pages": []
+  },
+  "Саха_тыла_2_2": {
+    "pdf": "ykt_textbooks/ykt_language/Саха_тыла_2_2.pdf",
+    "pages": 136,
+    "vision_pages": [],
+    "empty_pages": [
+      3
+    ]
+  },
+  "Саха_тыла_3_1": {
+    "pdf": "ykt_textbooks/ykt_language/Саха_тыла_3_1.pdf",
+    "pages": 144,
+    "vision_pages": [],
+    "empty_pages": []
+  },
+  "Саха_тыла_3_2": {
+    "pdf": "ykt_textbooks/ykt_language/Саха_тыла_3_2.pdf",
+    "pages": 112,
+    "vision_pages": [],
+    "empty_pages": [
+      3
+    ]
+  },
+  "Саха_тыла_4_1": {
+    "pdf": "ykt_textbooks/ykt_language/Саха_тыла_4_1.pdf",
+    "pages": 168,
+    "vision_pages": [],
+    "empty_pages": []
+  },
+  "Саха_тыла_4_2": {
+    "pdf": "ykt_textbooks/ykt_language/Саха_тыла_4_2.pdf",
+    "pages": 136,
+    "vision_pages": [],
+    "empty_pages": []
+  },
+  "Саха_тыла_5": {
+    "pdf": "ykt_textbooks/ykt_language/Саха_тыла_5.pdf",
+    "pages": 192,
+    "vision_pages": [],
+    "empty_pages": [
+      1,
+      192
+    ]
+  },
+  "Саха_тыла_6": {
+    "pdf": "ykt_textbooks/ykt_language/Саха_тыла_6.pdf",
+    "pages": 144,
+    "vision_pages": [],
+    "empty_pages": [
+      1,
+      144
+    ]
+  },
+  "Саха_тыла_7": {
+    "pdf": "ykt_textbooks/ykt_language/Саха_тыла_7.pdf",
+    "pages": 176,
+    "vision_pages": [],
+    "empty_pages": [
+      1,
+      176
+    ]
+  },
+  "Саха_тыла_8": {
+    "pdf": "ykt_textbooks/ykt_language/Саха_тыла_8.pdf",
+    "pages": 184,
+    "vision_pages": [],
+    "empty_pages": [
+      1,
+      184
+    ]
+  },
+  "Саха_тыла_9": {
+    "pdf": "ykt_textbooks/ykt_language/Саха_тыла_9.pdf",
+    "pages": 178,
+    "vision_pages": [
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88
+    ],
+    "empty_pages": [
+      1,
+      177,
+      178
+    ]
+  }
+}

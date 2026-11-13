@@ -1,0 +1,4 @@
+.DS_Store
+# source PDFs are large (>100MB each in places) — keep out of git
+*.pdf
+__pycache__/
