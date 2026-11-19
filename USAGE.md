@@ -58,6 +58,13 @@ overshoots are retained and flagged in the saved results. GPT-6.1 Sol uses a
 The solver receives the instruction and exercise content. The judge also receives
 the reference answer and each question's `eval_instruction`.
 
+## Self-hosted open-weight models
+
+Serve one model with vLLM on a GPU host, forward its port with
+`ssh -N -L 18000:127.0.0.1:8000 <gpu-host>` and set `LOCAL_INFERENCE_API_KEY`
+to the server's `--api-key`. Run `run_parallel.py` with `--models <alias>`
+(add `--judge sol-6.1-cloudru` to grade through Cloud.ru with `CLOUDRU_API_KEY`).
+
 ## Hosted evaluation and leaderboard refresh
 
 Follow [the Valkyrie adapter guide](valkyrie/README.md) to build Harbor tasks,

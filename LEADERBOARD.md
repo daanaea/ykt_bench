@@ -1,6 +1,6 @@
 # Leaderboard
 
-Last updated: Nov 15, 2026
+Last updated: Nov 17, 2026
 
 > Are frontier models able to complete primary school students' assignments in Sakha (Yakut) language?
 
@@ -26,11 +26,21 @@ Judge model: GPT-6.1 Sol. No internet access or tools. 900-second time limit, 33
 | GLM 5.3 | Z.ai | 14.4 | 21.9 | 18.2 | 12.0 | 21.4 | 8.3 | 33000 |
 | Qwen3.8 Flash | Alibaba | 14.4 | 18.8 | 9.1 | 20.0 | 17.9 | 8.3 | 33000 |
 | Kimi K3.1 Pro | Moonshot AI | 12.2 | 21.1 | 9.1 | 12.0 | 10.7 | 16.7 | 33000 |
+| Qwen3.5 27B Sah | lab-ii | 11.1 | 16.6 | 18.2 | 24.0 | 3.6 | 4.2 | 33000 |
 | Qwen3.8 27B | Alibaba | 6.7 | 9.3 | 9.1 | 0.0 | 10.7 | 8.3 | 33000 |
 | GigaChat 3.5 Ultra | Sber | 6.7 | 14.2 | 9.1 | 12.0 | 3.6 | 4.2 | 900 |
 | Gemma 4 31B | Google | 4.4 | 6.4 | 0.0 | 8.0 | 3.6 | 4.2 | 16384 |
 | Mistral Large 4 | Mistral AI | 3.3 | 3.9 | 0.0 | 8.0 | 3.6 | 0.0 | 33000 |
+| Aina 14B Instruct (2025-10-01) | lab-ii | 3.3 | 9.0 | 0.0 | 8.0 | 0.0 | 4.2 | 33000 |
 | MiniMax M3.1 Flash | MiniMax | 2.2 | 2.7 | 0.0 | 4.0 | 0.0 | 4.2 | 33000 |
+| Aina 14B Instruct (2025-10-21) | lab-ii | 2.2 | 8.0 | 9.1 | 4.0 | 0.0 | 0.0 | 33000 |
+| TABIS 1.1 0.8B (experimental) | tabis | 1.1 | 1.5 | 0.0 | 4.0 | 0.0 | 0.0 | 33000 |
+| Qwen3 4B Sah (instruct) | lab-ii | 1.1 | 2.2 | 0.0 | 0.0 | 3.6 | 0.0 | 33000 |
+| Yakut Qwen3.5 4B GRPO | loalkota | 0.0 | 1.0 | 0.0 | 0.0 | 0.0 | 0.0 | 33000 |
+| TinyLlama Sakha Instruct | lab-ii | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 | 485 |
+| Llama 3.2 Sah (instruct) | lab-ii | 0.0 | 0.2 | 0.0 | 0.0 | 0.0 | 0.0 | 33000 |
+| Gemma 4B Sah (instruct) | lab-ii | 0.0 | 0.2 | 0.0 | 0.0 | 0.0 | 0.0 | 33000 |
+| TranslateGemma 12B Sah | lab-ii | 0.0 | 0.9 | 0.0 | 0.0 | 0.0 | 0.0 | 323 |
 
 ### Cost and latency
 
@@ -51,11 +61,21 @@ Judge model: GPT-6.1 Sol. No internet access or tools. 900-second time limit, 33
 | GLM 5.3 | Z.ai | 139.0 | 80.3 | 428.1 | 534.2 | 0 | 29,788 | 1,422,380 | 90/90 | 0.0699 | 1.4 | 1.9934* | 4.2059 | 90/90 |
 | Qwen3.8 Flash | Alibaba | 290.3 | 308.5 | 480.2 | 503.3 | 0 | 34,056 | 2,298,689 | 90/90 | 0.15 | 0.47 | 1.0855* | 0.4729 | 37/90 |
 | Kimi K3.1 Pro | Moonshot AI | 45.3 | 29.9 | 186.3 | 230.6 | 0 | 37,198 | 554,751 | 90/90 | 0.2403 | 8.4023 | 4.6701* | 4.6701* | 0/90 |
+| Qwen3.5 27B Sah | lab-ii | 158.0 | 67.2 | 687.1 | 695.0 | 0 | 30,636 | 718,939 | 90/90 | — | — | — | — | 0/90 |
 | Qwen3.8 27B | Alibaba | 234.5 | 254.8 | 322.4 | 900.0 | 3 | 32,625† | 2,015,027† | 87/90 | 0.15 | 1.875 | 3.7831*† | 0.0941 | 4/90 |
 | GigaChat 3.5 Ultra | Sber | 3.5 | 2.8 | 9.9 | 19.0 | 0 | 33,650 | 8,263 | 90/90 | 1.07 | 3.21 | 0.0625* | 0.0625* | 0/90 |
 | Gemma 4 31B | Google | 18.5 | 8.1 | 62.8 | 329.6 | 0 | 29,739 | 130,015 | 90/90 | 0.2 | 0.4 | 0.0580* | 0.0366 | 66/90 |
 | Mistral Large 4 | Mistral AI | 207.9 | 241.1 | 334.4 | 371.0 | 0 | 26,891 | 2,086,691 | 90/90 | 0.7 | 2.1 | 4.4009* | 4.4081 | 89/90 |
+| Aina 14B Instruct (2025-10-01) | lab-ii | 6.3 | 1.0 | 2.3 | 316.0 | 0 | 30,586 | 53,131 | 90/90 | — | — | — | — | 0/90 |
 | MiniMax M3.1 Flash | MiniMax | 127.6 | 133.8 | 268.2 | 363.2 | 0 | 46,129 | 2,066,608 | 90/90 | 0.15 | 0.6 | 1.2469* | 1.2124 | 90/90 |
+| Aina 14B Instruct (2025-10-21) | lab-ii | 4.8 | 1.1 | 2.7 | 311.6 | 0 | 30,586 | 38,000 | 90/90 | — | — | — | — | 0/90 |
+| TABIS 1.1 0.8B (experimental) | tabis | 2.4 | 1.0 | 1.4 | 61.3 | 0 | 30,173 | 69,355 | 90/90 | — | — | — | — | 0/90 |
+| Qwen3 4B Sah (instruct) | lab-ii | 408.2 | 441.9 | 598.7 | 632.4 | 0 | 37,459 | 2,574,796 | 90/90 | — | — | — | — | 0/90 |
+| Yakut Qwen3.5 4B GRPO | loalkota | 20.8 | 1.8 | 191.6 | 192.1 | 0 | 26,181 | 315,529 | 90/90 | — | — | — | — | 0/90 |
+| TinyLlama Sakha Instruct | lab-ii | 1.2 | 1.2 | 1.9 | 2.3 | 0 | 30,730 | 6,090 | 90/90 | — | — | — | — | 0/90 |
+| Llama 3.2 Sah (instruct) | lab-ii | 354.0 | 354.7 | 433.6 | 462.2 | 0 | 29,939 | 2,937,370 | 90/90 | — | — | — | — | 0/90 |
+| Gemma 4B Sah (instruct) | lab-ii | 175.4 | 151.8 | 314.9 | 315.2 | 0 | 37,358 | 1,662,904 | 90/90 | — | — | — | — | 0/90 |
+| TranslateGemma 12B Sah | lab-ii | 1.9 | 1.8 | 3.6 | 4.2 | 0 | 29,004 | 11,132 | 90/90 | — | — | — | — | 0/90 |
 
 $\text{Estimated cost} = \frac{\text{reported input tokens × input price + reported output tokens × output price}}{1,000,000}$
 
@@ -76,6 +96,8 @@ Judging, discarded/failed attempts, Modal token or GPU hosting charges (includin
 Provider changes and native reasoning translations remain documented in the run notes; latency figures are not measurements of thinking time.
 
 [Metric and pricing snapshot](data/leaderboard_metrics.json) · [Current OpenRouter pricing catalog](https://openrouter.ai/api/v1/models) · [OpenRouter cost metadata](https://openrouter.ai/docs/api/api-reference/generations/get-generation)
+
+Qwen3.5 27B Sah, TABIS 1.1 0.8B, Yakut Qwen3.5 4B GRPO and seven other lab-ii models (Aina, TranslateGemma, and the instruct versions of Qwen3 4B, Gemma 4B, Llama 3.2 and TinyLlama) are community Sakha fine-tunes served from their open weights with vLLM on one H200 and evaluated with the local runner; their cost columns are dashes and their latency is not comparable to API rows. They were graded by the same GPT-6.1 Sol judge through Cloud.ru. [Run notes](valkyrie/RUNS.md#community-sakha-fine-tunes--november-17-2026).
 
 GPT-6.1 Sol grades with a 16,000-token
 budget and receives each question's `eval_instruction`; solvers do not.

@@ -174,6 +174,17 @@ effort = "high"        # Opus 5.5 defaults to medium; grading deserves high
 max_tokens = 16000
 fallbacks = true
 
+# Same judge model and settings through Cloud.ru's OpenAI-compatible Chat
+# Completions endpoint (it has no Responses API); strict JSON-schema output.
+[models."sol-6.1-cloudru"]
+provider = "openai_chat"
+model = "openai/gpt-6.1-sol"
+base_url = "https://foundation-models.api.cloud.ru/v1"
+api_key_env = "CLOUDRU_API_KEY"
+max_tokens = 16000
+json_schema = true
+extra_body = { reasoning_effort = "high" }
+
 # ---- offline testing ----
 
 [models."mock"]
@@ -284,3 +295,178 @@ timeout = 900
 max_retries = 0
 deadline_seconds = 900
 extra_body = { reasoning = { effort = "high" } }
+
+# ---- community Sakha fine-tunes (open weights) ----
+# Served with vLLM on one H200, original BF16 weights, reached through an SSH
+# tunnel on 127.0.0.1:18000. Each model keeps its own chat template and default
+# generation mode. LOCAL_INFERENCE_API_KEY is the local vLLM --api-key value.
+# Qwen3.5-27B-sah ships the base Qwen3.5 generation_config.json (temperature 0.6,
+# top_p 0.95, top_k 20, EOS <|im_end|> and <|endoftext|>). The other two merges
+# dropped that file and stop only on <|endoftext|>, so the same base defaults
+# are passed explicitly; without them answers run on into invented turns.
+
+[models."yakut-qwen3.5-4b-grpo"]
+# Weights: loalkota/yakut-qwen3.5-4b-grpo-merged@eca1ccbcdfdb058d2375960feb0b8988839eb94d
+provider = "openai_chat"
+model = "yakut-qwen3.5-4b-grpo"
+base_url = "http://127.0.0.1:18000/v1"
+api_key_env = "LOCAL_INFERENCE_API_KEY"
+max_tokens = 33000
+timeout = 900
+max_retries = 0
+deadline_seconds = 900
+extra_body = { temperature = 0.6, top_p = 0.95, top_k = 20, stop_token_ids = [248046, 248044] }
+
+[models."qwen3.5-27b-sah"]
+# Weights: lab-ii/Qwen3.5-27B-sah@5eda5ca74c904f7d757e3288f560378f7cfd2d7b
+provider = "openai_chat"
+model = "qwen3.5-27b-sah"
+base_url = "http://127.0.0.1:18000/v1"
+api_key_env = "LOCAL_INFERENCE_API_KEY"
+max_tokens = 33000
+timeout = 900
+max_retries = 0
+deadline_seconds = 900
+
+[models."tabis-1.1-experimental"]
+# Weights: tabisai/tabis-1.1-experimental@216a80251f3c8c9d5eefbcb9d5fed55ef41ae6c0 (source/merged-hf-bf16)
+provider = "openai_chat"
+model = "tabis-1.1-experimental"
+base_url = "http://127.0.0.1:18000/v1"
+api_key_env = "LOCAL_INFERENCE_API_KEY"
+max_tokens = 33000
+timeout = 900
+max_retries = 0
+deadline_seconds = 900
+extra_body = { temperature = 0.6, top_p = 0.95, top_k = 20, stop_token_ids = [248046, 248044] }
+
+# ---- lab-ii Sakha models (open weights), same vLLM/H200 route as above ----
+# Serving details per model (chat template, context, reasoning parser) are in
+# valkyrie/RUNS.md; repositories without a chat template use their base family's.
+
+[models."aina-14b-instruct-2025-10-01"]
+# Weights: lab-ii/Aina-14B-Instruct-01-10-2025@4baaacaba2
+provider = "openai_chat"
+model = "aina-14b-instruct-2025-10-01"
+base_url = "http://127.0.0.1:18000/v1"
+api_key_env = "LOCAL_INFERENCE_API_KEY"
+max_tokens = 33000
+timeout = 900
+max_retries = 0
+deadline_seconds = 900
+extra_body = { stop_token_ids = [151645, 151643] }  # end-of-turn and end-of-text
+
+[models."aina-14b-instruct-2025-10-21"]
+# Weights: lab-ii/Aina-14B-Instruct-21-10-2025@aa4eab3b56
+provider = "openai_chat"
+model = "aina-14b-instruct-2025-10-21"
+base_url = "http://127.0.0.1:18000/v1"
+api_key_env = "LOCAL_INFERENCE_API_KEY"
+max_tokens = 33000
+timeout = 900
+max_retries = 0
+deadline_seconds = 900
+extra_body = { stop_token_ids = [151645, 151643] }  # end-of-turn and end-of-text
+
+[models."translategemma-12b-sah"]
+# Weights: lab-ii/translategemma-12b-it-sah@82e352846d
+provider = "openai_chat"
+model = "translategemma-12b-sah"
+base_url = "http://127.0.0.1:18000/v1"
+api_key_env = "LOCAL_INFERENCE_API_KEY"
+max_tokens = 33000
+timeout = 900
+max_retries = 0
+deadline_seconds = 900
+extra_body = { stop_token_ids = [106, 1] }  # end-of-turn and end-of-text
+
+[models."qwen3-4b-sah-base"]
+# Weights: lab-ii/qwen3-4b-base@6b23264ce0
+provider = "openai_chat"
+model = "qwen3-4b-sah-base"
+base_url = "http://127.0.0.1:18000/v1"
+api_key_env = "LOCAL_INFERENCE_API_KEY"
+# This checkpoint's config caps the context at 32,768 tokens (below the 33,000 output
+# budget): no explicit output cap. vLLM then applies the repository's own
+# max_new_tokens = 2048 from generation_config.json.
+max_tokens = 32768
+omit_max_tokens = true
+timeout = 900
+max_retries = 0
+deadline_seconds = 900
+extra_body = { stop_token_ids = [151645, 151643] }  # end-of-turn and end-of-text
+
+[models."qwen3-4b-sah-instruct"]
+# Weights: lab-ii/qwen3-4b-instruct@8f49b36d46
+provider = "openai_chat"
+model = "qwen3-4b-sah-instruct"
+base_url = "http://127.0.0.1:18000/v1"
+api_key_env = "LOCAL_INFERENCE_API_KEY"
+max_tokens = 33000
+timeout = 900
+max_retries = 0
+deadline_seconds = 900
+extra_body = { stop_token_ids = [151645, 151643] }  # end-of-turn and end-of-text
+
+[models."gemma-4b-sah-base"]
+# Weights: lab-ii/gemma-4b-base@5f975e0fad
+provider = "openai_chat"
+model = "gemma-4b-sah-base"
+base_url = "http://127.0.0.1:18000/v1"
+api_key_env = "LOCAL_INFERENCE_API_KEY"
+max_tokens = 33000
+timeout = 900
+max_retries = 0
+deadline_seconds = 900
+extra_body = { stop_token_ids = [106, 1] }  # end-of-turn and end-of-text
+
+[models."gemma-4b-sah-instruct"]
+# Weights: lab-ii/gemma-4b-instruct@181798f0ef
+provider = "openai_chat"
+model = "gemma-4b-sah-instruct"
+base_url = "http://127.0.0.1:18000/v1"
+api_key_env = "LOCAL_INFERENCE_API_KEY"
+max_tokens = 33000
+timeout = 900
+max_retries = 0
+deadline_seconds = 900
+extra_body = { stop_token_ids = [106, 1] }  # end-of-turn and end-of-text
+
+[models."llama3.2-sah-base"]
+# Weights: lab-ii/llama3.2-base@1540b69a07
+provider = "openai_chat"
+model = "llama3.2-sah-base"
+base_url = "http://127.0.0.1:18000/v1"
+api_key_env = "LOCAL_INFERENCE_API_KEY"
+max_tokens = 33000
+timeout = 900
+max_retries = 0
+deadline_seconds = 900
+extra_body = { stop_token_ids = [128009, 128001] }  # end-of-turn and end-of-text
+
+[models."llama3.2-sah-instruct"]
+# Weights: lab-ii/llama3.2-instruct@e2f27380dd
+provider = "openai_chat"
+model = "llama3.2-sah-instruct"
+base_url = "http://127.0.0.1:18000/v1"
+api_key_env = "LOCAL_INFERENCE_API_KEY"
+max_tokens = 33000
+timeout = 900
+max_retries = 0
+deadline_seconds = 900
+extra_body = { stop_token_ids = [128009, 128001] }  # end-of-turn and end-of-text
+
+[models."tinyllama-sakha-instruct"]
+# Weights: lab-ii/TinyLlama-Sakha-Instruct@efe21dd4c3
+provider = "openai_chat"
+model = "tinyllama-sakha-instruct"
+base_url = "http://127.0.0.1:18000/v1"
+api_key_env = "LOCAL_INFERENCE_API_KEY"
+max_tokens = 2048
+timeout = 900
+max_retries = 0
+deadline_seconds = 900
+# 2,048-token context: no explicit output cap, the server uses what the prompt leaves.
+omit_max_tokens = true
+# Sampling from the model card.
+extra_body = { temperature = 0.7, top_k = 50, top_p = 0.95 }

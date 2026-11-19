@@ -227,9 +227,15 @@ class OpenAIChatProvider:
             messages=[{"role": "system", "content": system}, {"role": "user", "content": user}],
             max_tokens=cfg.get("max_tokens", 32000),
         )
+        if cfg.get("omit_max_tokens", False):
+            # Small-context servers: let the server use whatever context remains.
+            del kwargs["max_tokens"]
         if cfg.get("extra_body"):
             kwargs["extra_body"] = cfg["extra_body"]
-        if schema and cfg.get("json_mode", False):
+        if schema and cfg.get("json_schema", False):
+            kwargs["response_format"] = {"type": "json_schema", "json_schema": {
+                "name": "grade", "schema": schema, "strict": True}}
+        elif schema and cfg.get("json_mode", False):
             kwargs["response_format"] = {"type": "json_object"}
         t0 = time.monotonic()
         r = self.client.chat.completions.create(**kwargs)

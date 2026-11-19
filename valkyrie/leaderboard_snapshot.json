@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-11-16T06:17:41+00:00",
+  "updated_utc": "2026-11-17T20:09:13+00:00",
   "platform": "Valkyrie",
   "rows": [
     {
@@ -6083,6 +6083,411 @@
     {
       "graded": 90,
       "questions": 90,
+      "correct": 10.0,
+      "accuracy": 11.11111111111111,
+      "partial": 16.626555555555555,
+      "model": "qwen3.5-27b-sah",
+      "run_id": null,
+      "run_ids": [],
+      "status": "FINISHED",
+      "platform": "Local runner; vLLM on one H200",
+      "judge_route": "sol-6.1-cloudru",
+      "task_rewards": {
+        "vals90-row-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "vals90-row-003": {
+          "reward": 0.0,
+          "partial_credit": 0.5
+        },
+        "g2p2-L08-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L26-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L17-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L09-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L06-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.1667
+        },
+        "g4p1-L25-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L32-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L23-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L10-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L19-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L35-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006": {
+          "reward": 1.0,
+          "partial_credit": 1.0
+        },
+        "g2p1-L14-006b": {
+          "reward": 1.0,
+          "partial_credit": 1.0
+        },
+        "g2p1-L14-006c": {
+          "reward": 1.0,
+          "partial_credit": 1.0
+        },
+        "g2p1-L14-006d": {
+          "reward": 1.0,
+          "partial_credit": 1.0
+        },
+        "g3p1-L36-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L32-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L12-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L13-010": {
+          "reward": 0.0,
+          "partial_credit": 0.2
+        },
+        "g4p1-L13-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L02-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L02-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L06-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L11-009": {
+          "reward": 1.0,
+          "partial_credit": 1.0
+        },
+        "g1-L16-005": {
+          "reward": 1.0,
+          "partial_credit": 1.0
+        },
+        "g1-L21-008": {
+          "reward": 0.0,
+          "partial_credit": 0.25
+        },
+        "g1-L31-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L25-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L38-008": {
+          "reward": 0.0,
+          "partial_credit": 0.6667
+        },
+        "g2p1-L02-006": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L03-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L06-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L10-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L13-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L18-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L20-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L05-004": {
+          "reward": 0.0,
+          "partial_credit": 0.125
+        },
+        "g2p2-L07-008": {
+          "reward": 0.0,
+          "partial_credit": 0.25
+        },
+        "g2p2-L09-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L10-009": {
+          "reward": 1.0,
+          "partial_credit": 1.0
+        },
+        "g2p2-L16-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L17-007": {
+          "reward": 1.0,
+          "partial_credit": 1.0
+        },
+        "g2p2-L22-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.3333
+        },
+        "g2p2-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.25
+        },
+        "g2p2-L30-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L33-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L02-001": {
+          "reward": 0.0,
+          "partial_credit": 0.8
+        },
+        "g3p1-L05-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L16-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L19-002": {
+          "reward": 0.0,
+          "partial_credit": 0.2222
+        },
+        "g3p1-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.25
+        },
+        "g3p1-L27-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011b": {
+          "reward": 1.0,
+          "partial_credit": 1.0
+        },
+        "g3p1-L34-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L05-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L08-011": {
+          "reward": 0.0,
+          "partial_credit": 0.25
+        },
+        "g3p2-L11-011": {
+          "reward": 0.0,
+          "partial_credit": 0.5
+        },
+        "g3p2-L17-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L18-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L21-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L26-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L01-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L08-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L14-012": {
+          "reward": 0.0,
+          "partial_credit": 0.2
+        },
+        "g4p1-L15-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L17-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L16-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L31-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L32-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L05-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L09-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L11-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L12-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L20-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L26-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L32-013": {
+          "reward": 1.0,
+          "partial_credit": 1.0
+        },
+        "g4p2-L34-014": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        }
+      },
+      "model_name": "Qwen3.5 27B Sah",
+      "company": "lab-ii",
+      "complete": true,
+      "max_output_tokens": 33000,
+      "over_limit": 0,
+      "judge_model": false,
+      "timed_out": 0,
+      "responses_with_usage": 90,
+      "grades": {
+        "1": {
+          "total": 11,
+          "graded": 11,
+          "accuracy": 18.181818181818183
+        },
+        "2": {
+          "total": 25,
+          "graded": 25,
+          "accuracy": 24.0
+        },
+        "3": {
+          "total": 28,
+          "graded": 28,
+          "accuracy": 3.5714285714285716
+        },
+        "4": {
+          "total": 24,
+          "graded": 24,
+          "accuracy": 4.166666666666667
+        }
+      }
+    },
+    {
+      "graded": 90,
+      "questions": 90,
       "correct": 6.0,
       "accuracy": 6.666666666666667,
       "partial": 9.252645502645503,
@@ -7705,6 +8110,411 @@
     {
       "graded": 90,
       "questions": 90,
+      "correct": 3.0,
+      "accuracy": 3.3333333333333335,
+      "partial": 8.982,
+      "model": "aina-14b-instruct-2025-10-01",
+      "run_id": null,
+      "run_ids": [],
+      "status": "FINISHED",
+      "platform": "Local runner; vLLM on one H200",
+      "judge_route": "sol-6.1-cloudru",
+      "task_rewards": {
+        "vals90-row-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "vals90-row-003": {
+          "reward": 0.0,
+          "partial_credit": 0.5
+        },
+        "g2p2-L08-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L26-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L17-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L09-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L06-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L25-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L32-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L23-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L10-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L19-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L35-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006": {
+          "reward": 1.0,
+          "partial_credit": 1.0
+        },
+        "g2p1-L14-006b": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006c": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006d": {
+          "reward": 1.0,
+          "partial_credit": 1.0
+        },
+        "g3p1-L36-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L32-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L12-009": {
+          "reward": 0.0,
+          "partial_credit": 0.1429
+        },
+        "g3p2-L13-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L13-012": {
+          "reward": 0.0,
+          "partial_credit": 0.2
+        },
+        "g4p1-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L02-004": {
+          "reward": 0.0,
+          "partial_credit": 0.3333
+        },
+        "g1-L02-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L06-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L11-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L16-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L21-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L31-009": {
+          "reward": 0.0,
+          "partial_credit": 0.25
+        },
+        "g4p1-L25-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L38-008": {
+          "reward": 0.0,
+          "partial_credit": 0.6667
+        },
+        "g2p1-L02-006": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L03-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L06-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L10-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L13-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L18-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L20-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L05-004": {
+          "reward": 0.0,
+          "partial_credit": 0.25
+        },
+        "g2p2-L07-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L09-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L10-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L16-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L17-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L22-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.1667
+        },
+        "g2p2-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.125
+        },
+        "g2p2-L30-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L33-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L02-001": {
+          "reward": 0.0,
+          "partial_credit": 0.2
+        },
+        "g3p1-L05-010": {
+          "reward": 0.0,
+          "partial_credit": 0.3333
+        },
+        "g3p1-L16-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L19-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.25
+        },
+        "g3p1-L27-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011b": {
+          "reward": 0.0,
+          "partial_credit": 0.875
+        },
+        "g3p1-L34-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L05-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L08-011": {
+          "reward": 0.0,
+          "partial_credit": 0.5
+        },
+        "g3p2-L11-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L17-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L18-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L21-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L26-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L01-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L08-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L14-012": {
+          "reward": 0.0,
+          "partial_credit": 0.2
+        },
+        "g4p1-L15-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L17-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L16-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L31-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L32-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L05-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L09-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L11-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L12-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L20-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L26-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L32-013": {
+          "reward": 1.0,
+          "partial_credit": 1.0
+        },
+        "g4p2-L34-014": {
+          "reward": 0.0,
+          "partial_credit": 0.0909
+        }
+      },
+      "model_name": "Aina 14B Instruct (2025-10-01)",
+      "company": "lab-ii",
+      "complete": true,
+      "max_output_tokens": 33000,
+      "over_limit": 0,
+      "judge_model": false,
+      "timed_out": 0,
+      "responses_with_usage": 90,
+      "grades": {
+        "1": {
+          "total": 11,
+          "graded": 11,
+          "accuracy": 0.0
+        },
+        "2": {
+          "total": 25,
+          "graded": 25,
+          "accuracy": 8.0
+        },
+        "3": {
+          "total": 28,
+          "graded": 28,
+          "accuracy": 0.0
+        },
+        "4": {
+          "total": 24,
+          "graded": 24,
+          "accuracy": 4.166666666666667
+        }
+      }
+    },
+    {
+      "graded": 90,
+      "questions": 90,
       "correct": 2.0,
       "accuracy": 2.2222222222222223,
       "partial": 2.698412698412698,
@@ -8104,6 +8914,3246 @@
           "total": 24,
           "graded": 24,
           "accuracy": 4.166666666666667
+        }
+      }
+    },
+    {
+      "graded": 90,
+      "questions": 90,
+      "correct": 2.0,
+      "accuracy": 2.2222222222222223,
+      "partial": 8.04288888888889,
+      "model": "aina-14b-instruct-2025-10-21",
+      "run_id": null,
+      "run_ids": [],
+      "status": "FINISHED",
+      "platform": "Local runner; vLLM on one H200",
+      "judge_route": "sol-6.1-cloudru",
+      "task_rewards": {
+        "vals90-row-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "vals90-row-003": {
+          "reward": 0.0,
+          "partial_credit": 0.5
+        },
+        "g2p2-L08-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L26-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L17-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L09-009": {
+          "reward": 0.0,
+          "partial_credit": 0.1667
+        },
+        "g4p2-L06-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.1667
+        },
+        "g4p1-L25-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L32-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L23-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0833
+        },
+        "g3p2-L10-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L19-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L35-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006": {
+          "reward": 1.0,
+          "partial_credit": 1.0
+        },
+        "g2p1-L14-006b": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006c": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006d": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L36-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L32-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L12-009": {
+          "reward": 0.0,
+          "partial_credit": 0.1429
+        },
+        "g3p2-L13-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L13-012": {
+          "reward": 0.0,
+          "partial_credit": 0.2
+        },
+        "g4p1-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L02-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L02-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L06-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L11-009": {
+          "reward": 1.0,
+          "partial_credit": 1.0
+        },
+        "g1-L16-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L21-008": {
+          "reward": 0.0,
+          "partial_credit": 0.25
+        },
+        "g1-L31-009": {
+          "reward": 0.0,
+          "partial_credit": 0.5
+        },
+        "g4p1-L25-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L38-008": {
+          "reward": 0.0,
+          "partial_credit": 0.6667
+        },
+        "g2p1-L02-006": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L03-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L06-008": {
+          "reward": 0.0,
+          "partial_credit": 0.1667
+        },
+        "g2p1-L10-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L13-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L18-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L20-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L05-004": {
+          "reward": 0.0,
+          "partial_credit": 0.375
+        },
+        "g2p2-L07-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L09-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L10-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L16-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L17-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L22-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.125
+        },
+        "g2p2-L30-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L33-005": {
+          "reward": 0.0,
+          "partial_credit": 0.2
+        },
+        "g3p1-L02-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L05-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L16-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L19-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.25
+        },
+        "g3p1-L27-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011b": {
+          "reward": 0.0,
+          "partial_credit": 0.5714
+        },
+        "g3p1-L34-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L05-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L08-011": {
+          "reward": 0.0,
+          "partial_credit": 0.25
+        },
+        "g3p2-L11-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L17-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L18-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L21-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L26-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L01-001": {
+          "reward": 0.0,
+          "partial_credit": 0.2
+        },
+        "g4p1-L08-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L14-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L15-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L17-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L16-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L31-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L32-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L05-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L09-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L11-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L12-011": {
+          "reward": 0.0,
+          "partial_credit": 0.3333
+        },
+        "g4p2-L20-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L26-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L32-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L34-014": {
+          "reward": 0.0,
+          "partial_credit": 0.0909
+        }
+      },
+      "model_name": "Aina 14B Instruct (2025-10-21)",
+      "company": "lab-ii",
+      "complete": true,
+      "max_output_tokens": 33000,
+      "over_limit": 0,
+      "judge_model": false,
+      "timed_out": 0,
+      "responses_with_usage": 90,
+      "grades": {
+        "1": {
+          "total": 11,
+          "graded": 11,
+          "accuracy": 9.090909090909092
+        },
+        "2": {
+          "total": 25,
+          "graded": 25,
+          "accuracy": 4.0
+        },
+        "3": {
+          "total": 28,
+          "graded": 28,
+          "accuracy": 0.0
+        },
+        "4": {
+          "total": 24,
+          "graded": 24,
+          "accuracy": 0.0
+        }
+      }
+    },
+    {
+      "graded": 90,
+      "questions": 90,
+      "correct": 1.0,
+      "accuracy": 1.1111111111111112,
+      "partial": 1.5185555555555557,
+      "model": "tabis-1.1-experimental",
+      "run_id": null,
+      "run_ids": [],
+      "status": "FINISHED",
+      "platform": "Local runner; vLLM on one H200",
+      "judge_route": "sol-6.1-cloudru",
+      "task_rewards": {
+        "vals90-row-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "vals90-row-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L08-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L26-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L17-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L09-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L06-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L25-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L32-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L23-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L10-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L19-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L35-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006b": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006c": {
+          "reward": 1.0,
+          "partial_credit": 1.0
+        },
+        "g2p1-L14-006d": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L36-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L32-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L12-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L13-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L13-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L02-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L02-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L06-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L11-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L16-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L21-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L31-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L25-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L38-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L02-006": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L03-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L06-008": {
+          "reward": 0.0,
+          "partial_credit": 0.1667
+        },
+        "g2p1-L10-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L13-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L18-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L20-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L05-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L07-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L09-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L10-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L16-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L17-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L22-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L30-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L33-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L02-001": {
+          "reward": 0.0,
+          "partial_credit": 0.2
+        },
+        "g3p1-L05-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L16-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L19-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L27-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011b": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L34-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L05-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L08-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L11-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L17-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L18-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L21-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L26-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L01-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L08-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L14-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L15-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L17-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L16-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L31-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L32-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L05-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L09-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L11-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L12-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L20-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L26-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L32-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L34-014": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        }
+      },
+      "model_name": "TABIS 1.1 0.8B (experimental)",
+      "company": "tabis",
+      "complete": true,
+      "max_output_tokens": 33000,
+      "over_limit": 0,
+      "judge_model": false,
+      "timed_out": 0,
+      "responses_with_usage": 90,
+      "grades": {
+        "1": {
+          "total": 11,
+          "graded": 11,
+          "accuracy": 0.0
+        },
+        "2": {
+          "total": 25,
+          "graded": 25,
+          "accuracy": 4.0
+        },
+        "3": {
+          "total": 28,
+          "graded": 28,
+          "accuracy": 0.0
+        },
+        "4": {
+          "total": 24,
+          "graded": 24,
+          "accuracy": 0.0
+        }
+      }
+    },
+    {
+      "graded": 90,
+      "questions": 90,
+      "correct": 1.0,
+      "accuracy": 1.1111111111111112,
+      "partial": 2.151222222222222,
+      "model": "qwen3-4b-sah-instruct",
+      "run_id": null,
+      "run_ids": [],
+      "status": "FINISHED",
+      "platform": "Local runner; vLLM on one H200",
+      "judge_route": "sol-6.1-cloudru",
+      "task_rewards": {
+        "vals90-row-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "vals90-row-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L08-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L26-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L17-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L09-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L06-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L25-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L32-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L23-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L10-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L19-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L35-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006b": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006c": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006d": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L36-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L32-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.2
+        },
+        "g3p2-L12-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L13-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L13-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L02-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L02-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L06-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L11-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L16-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L21-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L31-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L25-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L38-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L02-006": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L03-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L06-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L10-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L13-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L18-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L20-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L05-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L07-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L09-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L10-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L16-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L17-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L22-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.375
+        },
+        "g2p2-L30-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L33-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L02-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L05-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L16-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-011": {
+          "reward": 1.0,
+          "partial_credit": 1.0
+        },
+        "g3p1-L19-002": {
+          "reward": 0.0,
+          "partial_credit": 0.1111
+        },
+        "g3p1-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L27-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011b": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L34-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L05-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L08-011": {
+          "reward": 0.0,
+          "partial_credit": 0.25
+        },
+        "g3p2-L11-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L17-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L18-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L21-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L26-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L01-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L08-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L14-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L15-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L17-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L16-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L31-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L32-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L05-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L09-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L11-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L12-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L20-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L26-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L32-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L34-014": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        }
+      },
+      "model_name": "Qwen3 4B Sah (instruct)",
+      "company": "lab-ii",
+      "complete": true,
+      "max_output_tokens": 33000,
+      "over_limit": 0,
+      "judge_model": false,
+      "timed_out": 0,
+      "responses_with_usage": 90,
+      "grades": {
+        "1": {
+          "total": 11,
+          "graded": 11,
+          "accuracy": 0.0
+        },
+        "2": {
+          "total": 25,
+          "graded": 25,
+          "accuracy": 0.0
+        },
+        "3": {
+          "total": 28,
+          "graded": 28,
+          "accuracy": 3.5714285714285716
+        },
+        "4": {
+          "total": 24,
+          "graded": 24,
+          "accuracy": 0.0
+        }
+      }
+    },
+    {
+      "graded": 90,
+      "questions": 90,
+      "correct": 0.0,
+      "accuracy": 0.0,
+      "partial": 1.0084444444444443,
+      "model": "yakut-qwen3.5-4b-grpo",
+      "run_id": null,
+      "run_ids": [],
+      "status": "FINISHED",
+      "platform": "Local runner; vLLM on one H200",
+      "judge_route": "sol-6.1-cloudru",
+      "task_rewards": {
+        "vals90-row-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "vals90-row-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L08-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L26-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L17-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L09-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L06-002": {
+          "reward": 0.0,
+          "partial_credit": 0.1667
+        },
+        "g4p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L25-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L32-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L23-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L10-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L19-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L35-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006b": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006c": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006d": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L36-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L32-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L12-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L13-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L13-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L02-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L02-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L06-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L11-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L16-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L21-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L31-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L25-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L38-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L02-006": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L03-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L06-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L10-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L13-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L18-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L20-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L05-004": {
+          "reward": 0.0,
+          "partial_credit": 0.125
+        },
+        "g2p2-L07-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L09-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L10-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L16-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L17-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L22-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.125
+        },
+        "g2p2-L30-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L33-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L02-001": {
+          "reward": 0.0,
+          "partial_credit": 0.2
+        },
+        "g3p1-L05-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L16-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L19-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L27-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011b": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L34-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L05-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L08-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L11-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L17-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L18-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L21-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L26-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L01-001": {
+          "reward": 0.0,
+          "partial_credit": 0.2
+        },
+        "g4p1-L08-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L14-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L15-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L17-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L16-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L31-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L32-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L05-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L09-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L11-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L12-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L20-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L26-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L32-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L34-014": {
+          "reward": 0.0,
+          "partial_credit": 0.0909
+        }
+      },
+      "model_name": "Yakut Qwen3.5 4B GRPO",
+      "company": "loalkota",
+      "complete": true,
+      "max_output_tokens": 33000,
+      "over_limit": 0,
+      "judge_model": false,
+      "timed_out": 0,
+      "responses_with_usage": 90,
+      "grades": {
+        "1": {
+          "total": 11,
+          "graded": 11,
+          "accuracy": 0.0
+        },
+        "2": {
+          "total": 25,
+          "graded": 25,
+          "accuracy": 0.0
+        },
+        "3": {
+          "total": 28,
+          "graded": 28,
+          "accuracy": 0.0
+        },
+        "4": {
+          "total": 24,
+          "graded": 24,
+          "accuracy": 0.0
+        }
+      }
+    },
+    {
+      "graded": 90,
+      "questions": 90,
+      "correct": 0.0,
+      "accuracy": 0.0,
+      "partial": 0.0,
+      "model": "tinyllama-sakha-instruct",
+      "run_id": null,
+      "run_ids": [],
+      "status": "FINISHED",
+      "platform": "Local runner; vLLM on one H200",
+      "judge_route": "sol-6.1-cloudru",
+      "task_rewards": {
+        "vals90-row-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "vals90-row-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L08-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L26-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L17-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L09-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L06-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L25-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L32-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L23-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L10-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L19-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L35-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006b": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006c": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006d": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L36-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L32-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L12-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L13-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L13-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L02-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L02-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L06-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L11-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L16-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L21-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L31-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L25-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L38-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L02-006": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L03-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L06-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L10-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L13-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L18-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L20-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L05-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L07-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L09-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L10-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L16-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L17-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L22-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L30-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L33-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L02-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L05-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L16-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L19-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L27-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011b": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L34-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L05-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L08-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L11-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L17-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L18-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L21-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L26-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L01-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L08-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L14-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L15-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L17-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L16-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L31-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L32-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L05-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L09-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L11-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L12-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L20-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L26-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L32-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L34-014": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        }
+      },
+      "model_name": "TinyLlama Sakha Instruct",
+      "company": "lab-ii",
+      "complete": true,
+      "max_output_tokens": 485,
+      "over_limit": 0,
+      "judge_model": false,
+      "timed_out": 0,
+      "responses_with_usage": 90,
+      "grades": {
+        "1": {
+          "total": 11,
+          "graded": 11,
+          "accuracy": 0.0
+        },
+        "2": {
+          "total": 25,
+          "graded": 25,
+          "accuracy": 0.0
+        },
+        "3": {
+          "total": 28,
+          "graded": 28,
+          "accuracy": 0.0
+        },
+        "4": {
+          "total": 24,
+          "graded": 24,
+          "accuracy": 0.0
+        }
+      }
+    },
+    {
+      "graded": 90,
+      "questions": 90,
+      "correct": 0.0,
+      "accuracy": 0.0,
+      "partial": 0.15877777777777777,
+      "model": "llama3.2-sah-instruct",
+      "run_id": null,
+      "run_ids": [],
+      "status": "FINISHED",
+      "platform": "Local runner; vLLM on one H200",
+      "judge_route": "sol-6.1-cloudru",
+      "task_rewards": {
+        "vals90-row-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "vals90-row-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L08-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L26-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L17-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L09-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L06-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L25-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L32-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L23-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L10-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L19-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L35-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006b": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006c": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006d": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L36-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L32-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L12-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L13-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L13-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L02-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L02-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L06-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L11-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L16-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L21-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L31-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L25-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L38-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L02-006": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L03-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L06-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L10-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L13-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L18-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L20-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L05-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L07-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L09-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L10-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L16-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L17-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L22-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L30-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L33-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L02-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L05-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L16-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L19-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L27-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011b": {
+          "reward": 0.0,
+          "partial_credit": 0.1429
+        },
+        "g3p1-L34-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L05-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L08-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L11-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L17-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L18-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L21-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L26-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L01-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L08-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L14-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L15-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L17-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L16-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L31-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L32-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L05-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L09-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L11-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L12-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L20-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L26-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L32-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L34-014": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        }
+      },
+      "model_name": "Llama 3.2 Sah (instruct)",
+      "company": "lab-ii",
+      "complete": true,
+      "max_output_tokens": 33000,
+      "over_limit": 0,
+      "judge_model": false,
+      "timed_out": 0,
+      "responses_with_usage": 90,
+      "grades": {
+        "1": {
+          "total": 11,
+          "graded": 11,
+          "accuracy": 0.0
+        },
+        "2": {
+          "total": 25,
+          "graded": 25,
+          "accuracy": 0.0
+        },
+        "3": {
+          "total": 28,
+          "graded": 28,
+          "accuracy": 0.0
+        },
+        "4": {
+          "total": 24,
+          "graded": 24,
+          "accuracy": 0.0
+        }
+      }
+    },
+    {
+      "graded": 90,
+      "questions": 90,
+      "correct": 0.0,
+      "accuracy": 0.0,
+      "partial": 0.2222222222222222,
+      "model": "gemma-4b-sah-instruct",
+      "run_id": null,
+      "run_ids": [],
+      "status": "FINISHED",
+      "platform": "Local runner; vLLM on one H200",
+      "judge_route": "sol-6.1-cloudru",
+      "task_rewards": {
+        "vals90-row-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "vals90-row-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L08-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L26-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L17-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L09-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L06-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L25-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L32-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L23-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L10-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L19-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L35-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006b": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006c": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006d": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L36-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L32-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L12-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L13-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L13-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L02-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L02-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L06-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L11-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L16-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L21-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L31-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L25-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L38-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L02-006": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L03-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L06-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L10-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L13-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L18-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L20-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L05-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L07-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L09-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L10-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L16-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L17-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L22-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L30-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L33-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L02-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L05-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L16-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L19-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L27-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011b": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L34-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L05-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L08-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L11-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L17-003": {
+          "reward": 0.0,
+          "partial_credit": 0.2
+        },
+        "g3p2-L18-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L21-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L26-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L01-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L08-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L14-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L15-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L17-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L16-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L31-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L32-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L05-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L09-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L11-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L12-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L20-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L26-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L32-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L34-014": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        }
+      },
+      "model_name": "Gemma 4B Sah (instruct)",
+      "company": "lab-ii",
+      "complete": true,
+      "max_output_tokens": 33000,
+      "over_limit": 0,
+      "judge_model": false,
+      "timed_out": 0,
+      "responses_with_usage": 90,
+      "grades": {
+        "1": {
+          "total": 11,
+          "graded": 11,
+          "accuracy": 0.0
+        },
+        "2": {
+          "total": 25,
+          "graded": 25,
+          "accuracy": 0.0
+        },
+        "3": {
+          "total": 28,
+          "graded": 28,
+          "accuracy": 0.0
+        },
+        "4": {
+          "total": 24,
+          "graded": 24,
+          "accuracy": 0.0
+        }
+      }
+    },
+    {
+      "graded": 90,
+      "questions": 90,
+      "correct": 0.0,
+      "accuracy": 0.0,
+      "partial": 0.8888888888888888,
+      "model": "translategemma-12b-sah",
+      "run_id": null,
+      "run_ids": [],
+      "status": "FINISHED",
+      "platform": "Local runner; vLLM on one H200",
+      "judge_route": "sol-6.1-cloudru",
+      "task_rewards": {
+        "vals90-row-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "vals90-row-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L08-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L26-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L17-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L09-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L06-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L34-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L25-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L32-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L23-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L10-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L19-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L35-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006b": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006c": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L14-006d": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L36-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L32-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L12-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L13-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L13-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L02-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L02-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L06-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L11-009": {
+          "reward": 0.0,
+          "partial_credit": 0.8
+        },
+        "g1-L16-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L21-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L31-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L25-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g1-L38-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L02-006": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L03-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L06-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L10-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L13-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L18-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p1-L20-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L05-004": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L07-008": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L09-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L10-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L16-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L17-007": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L22-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L26-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L30-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g2p2-L33-005": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L02-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L05-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L16-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L17-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L19-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L27-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L27-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L29-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L33-011b": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p1-L34-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L04-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L05-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L08-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L11-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L17-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L18-009": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L21-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g3p2-L26-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L01-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L08-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L14-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L15-010": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L17-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L16-003": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L31-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p1-L32-001": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L05-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L09-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L11-002": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L12-011": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L20-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L26-012": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L32-013": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        },
+        "g4p2-L34-014": {
+          "reward": 0.0,
+          "partial_credit": 0.0
+        }
+      },
+      "model_name": "TranslateGemma 12B Sah",
+      "company": "lab-ii",
+      "complete": true,
+      "max_output_tokens": 323,
+      "over_limit": 0,
+      "judge_model": false,
+      "timed_out": 0,
+      "responses_with_usage": 90,
+      "grades": {
+        "1": {
+          "total": 11,
+          "graded": 11,
+          "accuracy": 0.0
+        },
+        "2": {
+          "total": 25,
+          "graded": 25,
+          "accuracy": 0.0
+        },
+        "3": {
+          "total": 28,
+          "graded": 28,
+          "accuracy": 0.0
+        },
+        "4": {
+          "total": 24,
+          "graded": 24,
+          "accuracy": 0.0
         }
       }
     }

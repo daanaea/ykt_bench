@@ -6,7 +6,9 @@ This benchmark evaluates how well language models understand, write, and reason 
 
 The [90-question dataset](data/vals_90.jsonl) comes from the `vals sub` sheet of
 [`vals_90.xlsx`](data/vals_90.xlsx). The current leaderboard covers 20 models evaluated
-on Valkyrie and Modal, with all 90 questions graded for each model. 
+on Valkyrie and Modal, plus ten community Sakha fine-tunes evaluated with the local
+runner on a self-hosted GPU, with all 90 questions graded for each model. The failure
+examples below count the original 20 models.
 
 Each solver receives the exercise instruction and material. The judge receives
 the answer key and any exercise-specific `eval_instruction`; those instructions

@@ -255,3 +255,93 @@ questions. Grok's earlier maximum report of 51,390 tokens and its limit flags
 remain preserved. Final selected-response cost and latency metadata are saved
 in [the metrics snapshot](../data/leaderboard_metrics.json); those costs exclude
 judging, failed/discarded attempts, and Modal hosting.
+
+## Community Sakha fine-tunes — November 17, 2026
+
+Three open-weight Sakha fine-tunes, and then ten more models from lab-ii
+([below](#lab-ii-models)), were evaluated on all 90 questions with the
+local runner (`run_parallel.py`), not on Valkyrie. Run directory:
+`results/vals_90_local`; there are no hosted run IDs.
+
+| Model Name | Weights | Revision |
+|---|---|---|
+| Yakut Qwen3.5 4B GRPO | `loalkota/yakut-qwen3.5-4b-grpo-merged` | `eca1ccbcdfdb058d2375960feb0b8988839eb94d` |
+| Qwen3.5 27B Sah | `lab-ii/Qwen3.5-27B-sah` | `5eda5ca74c904f7d757e3288f560378f7cfd2d7b` |
+| TABIS 1.1 0.8B (experimental) | `tabisai/tabis-1.1-experimental`, `source/merged-hf-bf16` | `216a80251f3c8c9d5eefbcb9d5fed55ef41ae6c0` |
+
+- Serving: vLLM 0.34.0 on one H200, original BF16 weights, 65,536-token context,
+  one model at a time. The evaluator
+  reaches the server through an SSH tunnel.
+- Solver settings are unchanged: same solver prompt, no tools, 33,000 requested
+  output tokens, 900-second answer deadline, 16 concurrent questions.
+- Each model uses its own chat template and default mode: thinking is on for the
+  two larger models (vLLM `qwen3` reasoning parser; only the final answer is
+  graded) and off for TABIS, whose template disables it.
+- Qwen3.5 27B Sah ships the base Qwen3.5 `generation_config.json` (temperature
+  0.6, top_p 0.95, top_k 20, EOS `<|im_end|>` and `<|endoftext|>`). The other two
+  merges dropped it and stop only on `<|endoftext|>`, so the same base values are
+  passed explicitly in [`models_vals_modal.toml`](../models_vals_modal.toml).
+- TABIS is saved as a multimodal Qwen3.5 class without preprocessor files; the
+  base `Qwen/Qwen3.5-0.8B` `preprocessor_config.json` and
+  `video_preprocessor_config.json` were placed next to it so it loads. Weights,
+  tokenizer and template are untouched.
+- Judge: the same GPT-6.1 Sol model, high reasoning, 16,000 tokens and the same
+  judge prompt, but routed through Cloud.ru's Chat Completions endpoint with a
+  strict JSON schema (`sol-6.1-cloudru`), because no OpenAI key was available.
+  Earlier rows were graded through OpenAI's Responses API.
+- Cost columns are dashes: there is no API price for self-hosted weights.
+  Latency is measured on the dedicated H200 and is not comparable to API rows.
+
+### lab-ii models
+
+Ten more open-weight models from [lab-ii](https://huggingface.co/lab-ii) were
+evaluated the same way on the same day: same run directory, solver settings,
+judge route and H200, one model at a time.
+
+| Model Name | Weights | Revision | Context | Chat template |
+|---|---|---|---:|---|
+| Aina 14B Instruct (2025-10-01) | `lab-ii/Aina-14B-Instruct-01-10-2025` (gated) | `4baaacaba2` | 40,960 | repository's own |
+| Aina 14B Instruct (2025-10-21) | `lab-ii/Aina-14B-Instruct-21-10-2025` | `aa4eab3b562cdfa330588f3bdd87bd1cc614896e` | 40,960 | repository's own |
+| TranslateGemma 12B Sah | `lab-ii/translategemma-12b-it-sah` | `82e352846d0549c91ece4278de0799303ad0361e` | 65,536 | Gemma 3 |
+| Qwen3 4B Sah (base) | `lab-ii/qwen3-4b-base` | `6b23264ce081e025359f1dc5f3b82869c73da31c` | 32,768 | repository's own |
+| Qwen3 4B Sah (instruct) | `lab-ii/qwen3-4b-instruct` | `8f49b36d4676311982aad5c973990912759fea6f` | 40,960 | repository's own |
+| Gemma 4B Sah (base) | `lab-ii/gemma-4b-base` | `5f975e0fad00d0a416ef76442a000fe12d8154a6` | 65,536 | Gemma 3 |
+| Gemma 4B Sah (instruct) | `lab-ii/gemma-4b-instruct` | `181798f0efd7d5c0993ec4ee641d5c5bc66ecb6c` | 65,536 | Gemma 3 |
+| Llama 3.2 Sah (base) | `lab-ii/llama3.2-base` | `1540b69a07ccc3e8363bc9c9087777a28ff16ee6` | 65,536 | Llama 3 |
+| Llama 3.2 Sah (instruct) | `lab-ii/llama3.2-instruct` | `e2f27380ddd67b5ce3cf60549f94d73e36d78706` | 65,536 | Llama 3 |
+| TinyLlama Sakha Instruct | `lab-ii/TinyLlama-Sakha-Instruct` | `efe21dd4c368f61d992a5c42cc476f237feae421` | 2,048 | Alpaca |
+
+- The three base checkpoints (Qwen3 4B, Gemma 4B, Llama 3.2) were run but are not
+  listed on the leaderboard: they are continued-pretraining models, not
+  assistants. Their answers and grades stay in the run directory.
+- Several of these are continued-pretraining ("base") checkpoints or a
+  translation model, not chat assistants. They are served as chat models
+  anyway, so their rows measure how they behave when asked the benchmark
+  questions directly.
+- Repositories without a chat template get their base family's template. The
+  Gemma template folds the system prompt into the first user turn; TinyLlama
+  uses the Alpaca prompt from its model card, with the system prompt and the
+  question joined into the instruction.
+- The Gemma-family repositories ship no image-processor files, so the base
+  Gemma 3 preprocessor configs were placed next to the weights so they load.
+  Weights and tokenizers are untouched. Weights stored as float32 are served as
+  bfloat16.
+- Sampling comes from each repository's `generation_config.json` where it sets
+  any, otherwise vLLM defaults. TinyLlama uses its card's settings (temperature
+  0.7, top_k 50, top_p 0.95). End-of-turn and end-of-text stop tokens are passed
+  explicitly for every model because several configs list only end-of-text.
+- Context is the smaller of the serving default and the model's own limit. Two
+  models cannot hold the 33,000-token output budget: TinyLlama (2,048) and
+  Qwen3 4B Sah base (32,768). For them the request carries no output cap.
+  TinyLlama then uses whatever the prompt leaves; for Qwen3 4B Sah base the
+  server applied the repository's own `max_new_tokens` of 2,048, which cut 41
+  of its 90 answers short. None of the 90 contained a final-answer marker.
+- The vLLM `qwen3` reasoning parser is used only for the two Aina models, which
+  emit `<think>` blocks. The two Qwen3 4B checkpoints never emit them, so the
+  parser filed their whole output as reasoning and returned empty answers. That
+  first Qwen3 4B Sah (instruct) run was discarded and both were run without the
+  parser.
+- `lab-ii/Aina-14B-Instruct-01-10-2025` is gated; it was fetched with an
+  authorised Hugging Face login and each shard's SHA-256 was checked. One
+  `qwen3-4b-base` shard arrived truncated and was replaced and checked the same
+  way.
